@@ -8,6 +8,7 @@ import os
 import re
 import wave
 import codecs
+import random
 import subprocess
 import argparse
 import shutil
@@ -85,7 +86,7 @@ def process_arguments(args_wav, args_stereo, args_left, args_right, args_transcr
 	else:
 		outpath = os.getcwd()
 
-	tmppath = os.path.join(outpath, 'tmp')
+	tmppath = os.path.join(outpath, 'tmp-' + "%06x" % random.getrandbits(64))
 
 
 	# Channel options
